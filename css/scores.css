@@ -22,8 +22,20 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #fff;
 }
 .record_lists{
     display: flex;
     flex-direction: row;
+}
+.score_background h1{
+    font-size: 50px;
+}
+.record_lists div{
+    margin-inline: 50px;
+    margin-block: 10%;
+    font-size: 70px;
+}
+.record_lists div h3{
+    font-size: 40px;
 }
