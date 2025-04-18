@@ -17,7 +17,8 @@ const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
 const wpm_results = document.getElementById("results");
 const accuracy_result = document.getElementById("accuracy_result");
-
+let  time = document.getElementById("time");
+time.value="30";
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -86,6 +87,9 @@ const updateWord = (event) => {
 
             inputField.value = ""; // Clear input field after space
             event.preventDefault(); // Prevent adding extra spaces
+            if(currentWordIndex>wordsToType.length){
+                
+            }
         } else {
             if (wordError !== 0) {
                 wordError -= pas;
