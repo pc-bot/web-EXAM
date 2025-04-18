@@ -114,7 +114,7 @@ main{
     display: flex;
     flex-direction: row;
     margin-inline: 5%;
-    margin-top: 30px;
+    margin-top: 20px;
     height: 10vh;
     border-radius: 10px;
     background: linear-gradient(rgba(255, 255, 255, 0.30),rgba(255, 255, 255, 0));
