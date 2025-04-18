@@ -105,4 +105,5 @@ modeSelect.addEventListener("change", () => startTest());
 // Start the test
 startTest();
 
-// bonjour a marche
+
+
