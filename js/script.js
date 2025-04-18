@@ -10,7 +10,7 @@ let currentWordIndex = 0;
 const wordsToType = [];
 let pas = 0;
 let compte = 0
-let wordError = 100;
+let wordError ;
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
@@ -38,6 +38,8 @@ const startTest = (wordCount = 50) => {
     currentWordIndex = 0;
     startTime = null;
     previousEndTime = null;
+    compte = 0;
+    wordError = 100;
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
