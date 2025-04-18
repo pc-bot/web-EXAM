@@ -11,12 +11,30 @@
 <body>
     <header>
         <h1>Typing Test</h1>
-        <label for="mode">Select Mode:</label>
-        <select id="mode">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
+        <div class="restart_game">
+            <h3>Restart</h3>
+            <i class="fa-solid fa-arrow-rotate-right"></i>
+        </div>
+        <div class="wpm_game">
+            <h3>WPM</h3>
+            <p id=""></p>
+        </div>
+        <div class="accuracy_game">
+            <h3>Accuracy</h3>
+            <p id=""></p>
+        </div>
+        <div class="leave_game">
+            <h3>Quit</h3>
+            <i class="fa-solid fa-door-open"></i>
+        </div>
+        <div class="modes">
+            <label for="mode">Select Mode:</label>
+            <select id="mode">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
     </header>
 
     <main>
