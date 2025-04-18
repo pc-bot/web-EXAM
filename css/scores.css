@@ -51,3 +51,7 @@ body{
     background: linear-gradient(rgb(2, 162, 255),rgb(0, 60, 255));
     color: #09005c;
 }
+.score_background button:hover{
+    background: linear-gradient(rgb(0, 29, 107),rgb(1, 82, 175));
+    color: #fff;
+}
