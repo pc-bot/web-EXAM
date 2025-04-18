@@ -65,14 +65,15 @@ const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
         const getCurrentStats = () => {
             const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
-            const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
-            return { wpm: wpm.toFixed(2) };
+            const results = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
+            return  results.toFixed(2) };
         };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-            const { wpm } = getCurrentStats();
-            compte = wpm
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
+            const { results } = getCurrentStats();
+            compte = results
+            results.textContent = `WPM: ${compte} `;
+            accuracy_result.textContent = `Accuracy: ${wordError}%`
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
@@ -97,7 +98,7 @@ const updateWord = (event) => {
         inputField.value = "";
         event.preventDefault();
 
-    }
+    
 };
 
 // Highlight the current word in red
