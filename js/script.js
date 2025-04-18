@@ -43,7 +43,7 @@ const startTest = (wordCount = 50) => {
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
-    }
+    } 
 
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
