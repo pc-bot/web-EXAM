@@ -54,3 +54,34 @@ header{
     padding: 2%;
     color: #ffff;
 }
+.wpm_game h3{
+    margin-left: 30%;
+}
+.accuracy_game h3{
+    margin-left: 20%;
+}
+.leave_game h3{
+    margin-left: 30%;
+}
+.restart_game h3{
+    margin-left: 30%;
+}
+.modes label{
+    margin-left: 30%;
+    
+}
+.accuracy_game p, .wpm_game p{
+    margin-left: 35%;
+    margin-top: 3%;
+    font-size: 20px;
+} 
+.leave_game i , .restart_game i{
+    font-size: 25px;
+    margin-left: 40%;
+    margin-top: 3%;
+}
+.buttons_game i , .buttons_game p{
+    margin-inline: 35%;
+    margin-block: 3%;
+    font-size: 25px;
+}
