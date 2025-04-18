@@ -9,5 +9,19 @@ body{
     background-position: center;
     background-attachment: fixed;
     background-size: 100%;
-    animation: animated-background 12s infinite;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 8%;
+}
+.text p, h2{
+    margin-block: 5%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+
 }
