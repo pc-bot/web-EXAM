@@ -82,13 +82,15 @@ const updateWord = (event) => {
             }
             if (!previousEndTime) previousEndTime = startTime;
             const { } = getCurrentStats();
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+            results.textContent = `WPM: ${compte} `;
+            accuracy_result.textContent = `Accuracy: ${wordError}%`
             previousEndTime = Date.now();
             highlightNextWord();
             inputField.value = ""; // Clear input field after space
             event.preventDefault();
         }
-        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+        results.textContent = `WPM: ${compte} `;
+        accuracy_result.textContent = `Accuracy: ${wordError}%`
         previousEndTime = Date.now();
         highlightNextWord();
         inputField.value = "";
