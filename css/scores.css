@@ -28,14 +28,26 @@ body{
     display: flex;
     flex-direction: row;
 }
-.score_background h1{
-    font-size: 50px;
+.score_background p{
+    font-size: 80px;
 }
 .record_lists div{
     margin-inline: 50px;
     margin-block: 10%;
-    font-size: 70px;
+}
+.record_lists p{
+    font-size: 60px;
 }
 .record_lists div h3{
     font-size: 40px;
+}
+.score_background button {
+    width: 20vw;
+    height: 6vh;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    font-size: 30px;
+    background: linear-gradient(rgb(2, 162, 255),rgb(0, 60, 255));
+    color: #09005c;
 }
