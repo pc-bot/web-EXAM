@@ -13,6 +13,7 @@ const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
 const results = document.getElementById("results");
+const accuracy_result = document.getElementById("accuracy")
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -47,6 +48,7 @@ const startTest = (wordCount = 50) => {
 
     inputField.value = "";
     results.textContent = "";
+    accuracy_result.value = "00.00%"
 };
 
 // Start the timer when user begins typing
@@ -70,7 +72,8 @@ const updateWord = (event) => {
             if (!previousEndTime) previousEndTime = startTime;
 
             const { wpm, accuracy } = getCurrentStats();
-            results.textContent = `WPM: ${wpm}, Accuracy: ${accuracy}%`;
+            results.textContent = `WPM: ${wpm}`;
+            accuracy_result.textContent = `${accuracy}%`
 
             currentWordIndex++;
             previousEndTime = Date.now();
