@@ -136,3 +136,28 @@ main{
     margin: 1%;
 
 }
+.typing-record-parameters-timer , .typing-record-parameters-mistake{
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+}
+.typing-record-parameters-timer p , .typing-record-parameters-mistake p{
+    color: #ffff;
+    margin-block: 3%;
+    font-size: 20px;
+}
+.typing-record-parameters-timer h1 , .typing-record-parameters-mistake h1{
+    font-size: 20px;
+    width: 10vw;
+}
+#input-field {
+    height: 35px;
+    width:12vw;
+    font-size: 20px;
+    padding-left: 2%;
+    color: #0655ff;
+    outline: transparent;
+    margin-top: 15px;
+    margin-left: 0px;
+    border:  5px ridge rgba(50, 109, 220, 0.6);
+}
