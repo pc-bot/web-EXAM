@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: 
+    linear-gradient(45deg, rgb(43, 128, 255), rgb(40, 54, 255) );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.score_background{
+    background-color: rgb(4, 4, 126);
+    margin: 5%;
+    height: 78vh;
+    border-radius: 30px;
+}
+.score_background{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+.record_lists{
+    display: flex;
+    flex-direction: row;
+}
+.score_background p{
+    font-size: 80px;
+}
+.record_lists div{
+    margin-inline: 50px;
+    margin-block: 10%;
+}
+.record_lists p{
+    font-size: 60px;
+}
+.record_lists div h3{
+    font-size: 40px;
+}
+.score_background button {
+    width: 20vw;
+    height: 6vh;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    font-size: 30px;
+    background: linear-gradient(rgb(2, 162, 255),rgb(0, 60, 255));
+    color: #09005c;
+}
+.score_background button:hover{
+    background: linear-gradient(rgb(0, 29, 107),rgb(1, 82, 175));
+    color: #fff;
+}

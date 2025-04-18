@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-image: url(../img/tech.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 8%;
+}
+.text p, h2{
+    margin-block: 5%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+
+}
+.text p{
+    color: white;
+    font-size: 40px;
+    opacity: 0;
+}
+.text h2 {
+    width: 20ch;
+    position: relative;
+    color: #fff;
+    text-shadow:       
+    0 0 7px #0765f1,
+    0 0 9px hsl(215, 100%, 41%);
+    font-size: 70px;
+    opacity: 0;
+}
+.text button {
+    width: 10vw;
+    height: 6vh;
+    border-radius: 30px;
+    border-style: none;
+    background: linear-gradient(#64c1e6, #364eff);
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(8, 0, 122);
+    opacity: 0;
+}
+.text:first-child p , h2 ,button{
+    animation : slide 0.75s 0.4s forwards;
+}
+.text:last-child p ,h2 , button{
+    animation : slide 0.9s 0.6s forwards;
+    
+}
+@keyframes slide {
+    0%{
+        opacity: 0;
+        transform: translate3d(0,120%,0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0);
+    }
+}
+.text button:hover{
+    background: linear-gradient(#2936e9, #151d5c);
+    color: white;
+}
+.button_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
