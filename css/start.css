@@ -24,3 +24,33 @@ header{
     justify-content: space-evenly;
 
 }
+label{
+    color: white;
+}
+.modes {
+    margin: 20px;
+}
+select{
+    width: 7vw;
+    height: 4vh;
+    border-radius: 20px;
+
+}
+.wpm_game , .accuracy_game,.restart_game,.leave_game ,.modes{
+    margin-top: 3%;
+    width: 15vw;
+    height: 15vh;
+    padding: 1%;
+    border-radius: 20px;
+    background: linear-gradient(#02ccff,#0655ff);
+    display: flex;
+    flex-direction: column;
+}
+header{
+    margin-inline: 5%;
+}
+.wpm_game h3 , .accuracy_game h3, .restart_game h3,.leave_game h3 ,.modes label{
+    font-size: 22px;
+    padding: 2%;
+    color: #ffff;
+}

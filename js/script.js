@@ -47,8 +47,8 @@ const startTest = (wordCount = 50) => {
     });
 
     inputField.value = "";
-    results.textContent = "";
-    accuracy_result.value = "00.00%"
+    results.textContent = "00";
+    accuracy_result.textContent = "00.00%"
 };
 
 // Start the timer when user begins typing
