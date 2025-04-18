@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: 
+    linear-gradient(45deg, rgb(43, 128, 255), rgb(40, 54, 255) );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.score_background{
+    background-color: rgb(4, 4, 126);
+    margin: 5%;
+    height: 78vh;
+    border-radius: 30px;
+}
+.score_background p , .score_background button{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
