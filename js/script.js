@@ -8,10 +8,6 @@
 let startTime = null, previousEndTime = null;
 let currentWordIndex = 0;
 const wordsToType = [];
-let pas = 0;
-let compte = 0
-let wordError = 100;
-
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
@@ -60,32 +56,43 @@ const startTimer = () => {
     if (!startTime) startTime = Date.now();
 };
 
-// Calculate and return WPM & accuracy
-const getCurrentStats = () => {
-    const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
-    const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
-    const accuracy = (wordsToType[currentWordIndex].length / inputField.value.length) * 100;
-
-    return { wpm: wpm.toFixed(2), accuracy: accuracy.toFixed(2) };
-};
-
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
+        const getCurrentStats = () => {
+            const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
+            const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
+            return { wpm: wpm.toFixed(2) };
+        };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-
-            const { wpm, accuracy } = getCurrentStats();
-            results.textContent = `WPM: ${wpm}`;
-            accuracy_result.textContent = `${accuracy}%`
-
+            const { wpm } = getCurrentStats();
+            compte = wpm
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
 
             inputField.value = ""; // Clear input field after space
             event.preventDefault(); // Prevent adding extra spaces
+        } else {
+            if (wordError !== 0) {
+                wordError -= pas;
+            }
+            if (!previousEndTime) previousEndTime = startTime;
+            const { } = getCurrentStats();
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+            previousEndTime = Date.now();
+            highlightNextWord();
+            inputField.value = ""; // Clear input field after space
+            event.preventDefault();
         }
+        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+        previousEndTime = Date.now();
+        highlightNextWord();
+        inputField.value = "";
+        event.preventDefault();
+
     }
 };
 
