@@ -15,7 +15,8 @@ let wordError = 100;
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
-const results = document.getElementById("results");
+const wpm_results = document.getElementById("results");
+const accuracy_result = document.getElementById("accuracy_result");
 
 
 const words = {
@@ -51,7 +52,7 @@ const startTest = (wordCount = 50) => {
     });
 
     inputField.value = "";
-    results.textContent = "";
+    results.textContent = "00";
 };
 
 // Start the timer when user begins typing
@@ -74,7 +75,8 @@ const updateWord = (event) => {
             if (!previousEndTime) previousEndTime = startTime;
             const { wpm } = getCurrentStats();
             compte = wpm
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
+            wpm_results.textContent = `${compte}`;
+            accuracy_result.textContent = `${wordError}%`;
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
@@ -87,13 +89,15 @@ const updateWord = (event) => {
             }
             if (!previousEndTime) previousEndTime = startTime;
             const { } = getCurrentStats();
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+            wpm_results.textContent = `${compte}`;
+            accuracy_result.textContent = `${wordError}%`;
             previousEndTime = Date.now();
             highlightNextWord();
             inputField.value = ""; // Clear input field after space
             event.preventDefault();
         }
-        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+        wpm_results.textContent = `${compte}`;
+        accuracy_result.textContent = `${wordError}%`;
         previousEndTime = Date.now();
         highlightNextWord();
         inputField.value = "";
