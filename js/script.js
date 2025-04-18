@@ -70,18 +70,33 @@ const updateWord = (event) => {
         };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-
-            const { wpm, accuracy } = getCurrentStats();
-            results.textContent = `${wpm}`;
-            accuracy_result.textContent = `${accuracy}%`
-
+            const { wpm } = getCurrentStats();
+            compte = wpm
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
 
             inputField.value = ""; // Clear input field after space
             event.preventDefault(); // Prevent adding extra spaces
+        } else {
+            if (wordError !== 0) {
+                wordError -= pas;
+            }
+            if (!previousEndTime) previousEndTime = startTime;
+            const { } = getCurrentStats();
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+            previousEndTime = Date.now();
+            highlightNextWord();
+            inputField.value = ""; // Clear input field after space
+            event.preventDefault();
         }
+        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
+        previousEndTime = Date.now();
+        highlightNextWord();
+        inputField.value = "";
+        event.preventDefault();
+
     }
 };
 
