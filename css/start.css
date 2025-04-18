@@ -100,3 +100,13 @@ header{
     font-size: 20px;
     width: 100%;
 }
+main{
+    border:  4mm ridge rgba(50, 109, 220, 0.6);
+    padding: 1%;
+    width: 80%;
+    height: 50vh;
+    font-size: 25px;
+    margin-inline: 10%;
+    color: black;
+    background-color: white;
+}
