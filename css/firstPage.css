@@ -69,3 +69,12 @@ body{
         transform: translate3d(0);
     }
 }
+.text button:hover{
+    background: linear-gradient(#2936e9, #151d5c);
+    color: white;
+}
+.button_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
