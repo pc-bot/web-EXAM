@@ -70,11 +70,9 @@ const updateWord = (event) => {
         };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-
-            const { wpm, accuracy } = getCurrentStats();
-            results.textContent = `WPM: ${wpm}`;
-            accuracy_result.textContent = `${accuracy}%`
-
+            const { wpm } = getCurrentStats();
+            compte = wpm
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
