@@ -16,8 +16,8 @@ let wordError = 100;
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
-const results = document.getElementById("accuracy");
-
+const results = document.getElementById("results");
+const accuracy_result = document.getElementById("accuracy")
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -52,7 +52,7 @@ const startTest = (wordCount = 50) => {
 
     inputField.value = "";
     results.textContent = "00";
-    results.textContent = "00.00%"
+    accuracy_result.textContent = "00.00%"
 };
 
 // Start the timer when user begins typing
@@ -70,9 +70,11 @@ const updateWord = (event) => {
         };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-            const { wpm } = getCurrentStats();
-            compte = wpm
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
+
+            const { wpm, accuracy } = getCurrentStats();
+            results.textContent = `${wpm}`;
+            accuracy_result.textContent = `${accuracy}%`
+
             currentWordIndex++;
             previousEndTime = Date.now();
             highlightNextWord();
