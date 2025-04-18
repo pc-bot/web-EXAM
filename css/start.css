@@ -71,10 +71,15 @@ header{
     
 }
 .accuracy_game p, .wpm_game p{
-    margin-left: 35%;
     margin-top: 3%;
     font-size: 20px;
 } 
+.accuracy_game P{
+    padding-left: 30%;
+}
+.wpm_game p{
+    padding-left: 40%;
+}
 .leave_game i , .restart_game i{
     font-size: 25px;
     margin-left: 40%;
