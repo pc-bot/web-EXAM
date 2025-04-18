@@ -8,10 +8,6 @@
 let startTime = null, previousEndTime = null;
 let currentWordIndex = 0;
 const wordsToType = [];
-let pas = 0;
-let compte = 0
-let wordError = 100;
-
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
@@ -86,15 +82,13 @@ const updateWord = (event) => {
             }
             if (!previousEndTime) previousEndTime = startTime;
             const { } = getCurrentStats();
-            results.textContent = `WPM: ${compte} `;
-            accuracy_result.textContent = `Accuracy: ${wordError}%`
+            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
             previousEndTime = Date.now();
             highlightNextWord();
             inputField.value = ""; // Clear input field after space
             event.preventDefault();
         }
-        results.textContent = `WPM: ${compte} `;
-        accuracy_result.textContent = `Accuracy: ${wordError}%`
+        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
         previousEndTime = Date.now();
         highlightNextWord();
         inputField.value = "";
