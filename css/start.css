@@ -110,3 +110,29 @@ main{
     color: black;
     background-color: white;
 }
+.tiping-record{
+    display: flex;
+    flex-direction: row;
+    margin-inline: 5%;
+    margin-top: 30px;
+    height: 10vh;
+    border-radius: 10px;
+    background: linear-gradient(rgba(255, 255, 255, 0.30),rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:  1px solid rgba(255, 255, 255, 0.18);
+}
+.typing-record-percent{
+    border: 1px solid black;
+    width: 200px;
+    margin-left: 5%;
+    margin-block: 15px;
+    height: 30px;
+    border-radius: 20px;
+}
+.tiping-record-parameters{
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+
+}
