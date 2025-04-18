@@ -70,16 +70,8 @@ const updateWord = (event) => {
             const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
             return { wpm: wpm.toFixed(2) };
         };
-        const getCurrentStats = () => {
-            const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
-            const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
-            return { wpm: wpm.toFixed(2) };
-        };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
-            const { wpm } = getCurrentStats();
-            compte = wpm
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
             const { wpm } = getCurrentStats();
             compte = wpm
             results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`
@@ -89,24 +81,6 @@ const updateWord = (event) => {
 
             inputField.value = ""; // Clear input field after space
             event.preventDefault(); // Prevent adding extra spaces
-        } else {
-            if (wordError !== 0) {
-                wordError -= pas;
-            }
-            if (!previousEndTime) previousEndTime = startTime;
-            const { } = getCurrentStats();
-            results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
-            previousEndTime = Date.now();
-            highlightNextWord();
-            inputField.value = ""; // Clear input field after space
-            event.preventDefault();
-        }
-        results.textContent = `WPM: ${compte} Accuracy: ${wordError}%`;
-        previousEndTime = Date.now();
-        highlightNextWord();
-        inputField.value = "";
-        event.preventDefault();
-
         } else {
             if (wordError !== 0) {
                 wordError -= pas;
