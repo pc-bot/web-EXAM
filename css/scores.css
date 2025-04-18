@@ -17,8 +17,13 @@ body{
     height: 78vh;
     border-radius: 30px;
 }
-.score_background p , .score_background button{
+.score_background{
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+}
+.record_lists{
+    display: flex;
+    flex-direction: row;
 }
