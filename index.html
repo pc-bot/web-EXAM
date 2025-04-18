@@ -12,10 +12,10 @@
 <body>
     <h1>Typing Test</h1>
     <header>
-        <a class="restart_game">
+        <button onclick="startTest();" class="restart_game">
             <h3>Restart</h3>
             <i class="fa-solid fa-arrow-rotate-right"></i>
-        </a>
+        </button>
         <div class="wpm_game">
             <h3>WPM</h3>
             <p id="results">00</p>        
@@ -24,10 +24,10 @@
             <h3>Accuracy</h3>
             <p id="accuracy_result">00.00%</p>
         </div>
-        <div class="leave_game">
+        <button class="leave_game">
             <h3>Quit</h3>
             <i class="fa-solid fa-door-open"></i>
-        </div>
+        </button>
         <div class="modes">
             <label for="mode">Mode</label>
             <select id="mode">

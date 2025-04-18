@@ -54,6 +54,7 @@ const startTest = (wordCount = 50) => {
     });
 
     inputField.value = "";
+    inputField.focus();
     results.textContent = "00";
 };
 
