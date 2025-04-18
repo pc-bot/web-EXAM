@@ -62,7 +62,7 @@ const updateWord = (event) => {
         const getCurrentStats = () => {
             const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
             const results = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
-            return  results.toFixed(2) };
+            return {results: results.toFixed(2) };
         };
         if (inputField.value.trim() === wordsToType[currentWordIndex]) {
             if (!previousEndTime) previousEndTime = startTime;
@@ -93,7 +93,7 @@ const updateWord = (event) => {
         highlightNextWord();
         inputField.value = "";
         event.preventDefault();
-
+    }
     
 };
 
