@@ -10,13 +10,13 @@ let currentWordIndex = 0;
 const wordsToType = [];
 let pas = 0;
 let compte = 0
-let wordError ;
+let wordError = 100;
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
 const wpm_results = document.getElementById("results");
-const accuracy_result = document.getElementById("accuracy_result");
+const accuracy_result = document.getElementById("accuracy_result")
 
 
 const words = {
@@ -39,12 +39,10 @@ const startTest = (wordCount = 50) => {
     currentWordIndex = 0;
     startTime = null;
     previousEndTime = null;
-    compte = 0;
-    wordError = 100;
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
-    } 
+    }
 
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
@@ -98,7 +96,7 @@ const updateWord = (event) => {
             inputField.value = ""; // Clear input field after space
             event.preventDefault();
         }
-        wpm_results.textContent = `${compte}`;
+        wpm_results.textContent = ` ${compte}`;
         accuracy_result.textContent = `${wordError}%`;
         previousEndTime = Date.now();
         highlightNextWord();
