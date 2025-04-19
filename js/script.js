@@ -68,6 +68,7 @@ const startTest = (wordCount = 50 ) => {
     previousEndTime = null;
     timer = null;
     compte = 0;
+    mistakes.textContent = "00";
     wordError = 100;
     Seconds=60;
     initTimer();
