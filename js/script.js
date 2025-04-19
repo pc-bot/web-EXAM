@@ -10,14 +10,21 @@ let currentWordIndex = 0;
 const wordsToType = [];
 let pas = 0;
 let compte = 0
-let wordError = 100;
+let wordError=100 ;
+let time_table=[];
+let timeoutId;
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
 const wpm_results = document.getElementById("results");
 const accuracy_result = document.getElementById("accuracy_result");
-
+const mistakes = document.getElementById("mistake");
+let  time = document.getElementById("time");
+ time.textContent="00";
+ let Seconds=60;
+ let timer;
+ let errorCounter = 0;
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -30,19 +37,44 @@ const getRandomWord = (mode) => {
     const wordList = words[mode];
     return wordList[Math.floor(Math.random() * wordList.length)];
 };
+ function initTimer(){
+    clearTimeout(timeoutId);
+    countdown();
+ } 
 
+ function countdown() {
+    time.textContent= `${Seconds}` // Display the current second
+    Seconds--;
+  
+    if (Seconds >= 0) {
+        timeoutId = setTimeout(countdown, 1000); // Call itself after 1 second
+        inputField.style.display = "block"
+    } else {
+        mistakes.textContent= `${errorCounter}`
+        time.textContent= 'Fin du test'
+        inputField.style.display = "none"
+    }
+  }
+ 
 // Initialize the typing test
-const startTest = (wordCount = 50) => {
+const startTest = (wordCount = 50 ) => {
+   
+    errorCounter=0;
     pas = 100 / wordCount;
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
     currentWordIndex = 0;
     startTime = null;
     previousEndTime = null;
+    timer = null;
+    compte = 0;
+    wordError = 100;
+    Seconds=60;
+    initTimer();
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
-    }
+    } 
 
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
@@ -52,7 +84,9 @@ const startTest = (wordCount = 50) => {
     });
 
     inputField.value = "";
+    inputField.focus();
     results.textContent = "00";
+    accuracy_result.textContent = "00%"
 };
 
 // Start the timer when user begins typing
@@ -60,8 +94,7 @@ const startTimer = () => {
     if (!startTime) startTime = Date.now();
 };
 
-// Calculate and return WPM & accuracy
-
+// Calculate and return time
 
 // Move to the next word  and update stats only on spacebar press
 const updateWord = (event) => {
@@ -83,10 +116,14 @@ const updateWord = (event) => {
 
             inputField.value = ""; // Clear input field after space
             event.preventDefault(); // Prevent adding extra spaces
+            if(currentWordIndex>wordsToType.length){
+                
+            }
         } else {
             if (wordError !== 0) {
                 wordError -= pas;
             }
+            errorCounter++;
             if (!previousEndTime) previousEndTime = startTime;
             const { } = getCurrentStats();
             wpm_results.textContent = `${compte}`;
