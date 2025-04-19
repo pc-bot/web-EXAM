@@ -49,6 +49,12 @@ select{
 header{
     margin-inline: 5%;
 }
+.leave_game{
+    text-decoration: none;
+}
+.restart_game{
+    outline: none;
+}
 .wpm_game h3 , .accuracy_game h3, .restart_game h3,.leave_game h3 ,.modes label{
     font-size: 22px;
     padding: 2%;
@@ -60,15 +66,16 @@ header{
 .accuracy_game h3{
     margin-left: 20%;
 }
-.leave_game h3{
+.leave_game h3 {
     margin-left: 30%;
+    text-decoration: none;
 }
-.restart_game h3{
-    margin-left: 30%;
+.restart_game i{
+    font-size: 25px;
+    margin-top: 5px;
 }
 .modes label{
     margin-left: 30%;
-    
 }
 .accuracy_game p, .wpm_game p{
     margin-top: 3%;
@@ -80,10 +87,11 @@ header{
 .wpm_game p{
     padding-left: 40%;
 }
-.leave_game i , .restart_game i{
+.leave_game i{
     font-size: 25px;
     margin-left: 40%;
     margin-top: 3%;
+    color: black ;
 }
 .buttons_game i , .buttons_game p{
     margin-inline: 35%;
