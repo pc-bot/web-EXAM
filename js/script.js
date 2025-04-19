@@ -33,7 +33,7 @@ const getRandomWord = (mode) => {
 };
 
 // Initialize the typing test
-const startTest = (wordCount = 50) => {
+const startTest = (wordCount = 50 ) => {
     pas = 100 / wordCount;
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
