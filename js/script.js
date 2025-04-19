@@ -10,7 +10,7 @@ let currentWordIndex = 0;
 const wordsToType = [];
 let pas = 0;
 let compte = 0
-let wordError ;
+let wordError=100 ;
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
@@ -18,7 +18,7 @@ const inputField = document.getElementById("input-field");
 const wpm_results = document.getElementById("results");
 const accuracy_result = document.getElementById("accuracy_result");
 let  time = document.getElementById("time");
-time.value="30";
+time.value="";
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -42,6 +42,7 @@ const startTest = (wordCount = 50 ) => {
     previousEndTime = null;
     compte = 0;
     wordError = 100;
+    time.value=30;
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
@@ -69,6 +70,7 @@ const startTimer = () => {
 
 // Move to the next word  and update stats only on spacebar press
 const updateWord = (event) => {
+    time.value-=1
     if (event.key === " ") { // Check if spacebar is pressed
         const getCurrentStats = () => {
             const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
