@@ -48,9 +48,11 @@ const getRandomWord = (mode) => {
   
     if (Seconds >= 0) {
         timeoutId = setTimeout(countdown, 1000); // Call itself after 1 second
+        inputField.style.display = "block"
     } else {
         mistakes.textContent= `${errorCounter}`
         time.textContent= 'Fin du test'
+        inputField.style.display = "none"
     }
   }
  
@@ -84,6 +86,7 @@ const startTest = (wordCount = 50 ) => {
     inputField.value = "";
     inputField.focus();
     results.textContent = "00";
+    accuracy_result.textContent = "00%"
 };
 
 // Start the timer when user begins typing
