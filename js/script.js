@@ -11,14 +11,20 @@ const wordsToType = [];
 let pas = 0;
 let compte = 0
 let wordError=100 ;
+let time_table=[];
+let timeoutId;
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
 const inputField = document.getElementById("input-field");
 const wpm_results = document.getElementById("results");
 const accuracy_result = document.getElementById("accuracy_result");
+const mistakes = document.getElementById("mistake");
 let  time = document.getElementById("time");
-time.value="";
+ time.textContent="00";
+ let Seconds=60;
+ let timer;
+ let errorCounter = 0;
 
 const words = {
     easy: ["apple", "banana", "grape", "orange", "cherry"],
@@ -31,18 +37,38 @@ const getRandomWord = (mode) => {
     const wordList = words[mode];
     return wordList[Math.floor(Math.random() * wordList.length)];
 };
+ function initTimer(){
+    clearTimeout(timeoutId);
+    countdown();
+ } 
 
+ function countdown() {
+    time.textContent= `${Seconds}` // Display the current second
+    Seconds--;
+  
+    if (Seconds >= 0) {
+        timeoutId = setTimeout(countdown, 1000); // Call itself after 1 second
+    } else {
+        mistakes.textContent= `${errorCounter}`
+        time.textContent= 'Fin du test'
+    }
+  }
+ 
 // Initialize the typing test
 const startTest = (wordCount = 50 ) => {
+   
+    errorCounter=0;
     pas = 100 / wordCount;
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
     currentWordIndex = 0;
     startTime = null;
     previousEndTime = null;
+    timer = null;
     compte = 0;
     wordError = 100;
-    time.value=30;
+    Seconds=60;
+    initTimer();
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
@@ -65,12 +91,10 @@ const startTimer = () => {
     if (!startTime) startTime = Date.now();
 };
 
-// Calculate and return WPM & accuracy
-
+// Calculate and return time
 
 // Move to the next word  and update stats only on spacebar press
 const updateWord = (event) => {
-    time.value-=1
     if (event.key === " ") { // Check if spacebar is pressed
         const getCurrentStats = () => {
             const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
@@ -96,6 +120,7 @@ const updateWord = (event) => {
             if (wordError !== 0) {
                 wordError -= pas;
             }
+            errorCounter++;
             if (!previousEndTime) previousEndTime = startTime;
             const { } = getCurrentStats();
             wpm_results.textContent = `${compte}`;
